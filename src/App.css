@@ -86,16 +86,9 @@ h1{
   font-size: calc(22px + (26 - 22) * ((100vw - 300px) / (1600 - 300)));
 }
 
-.spanProfissao{
-  text-decoration: underline;
-  text-decoration-color: var(--navbar);
-  font-size: calc(20px + (26 - 20) * ((100vw - 300px) / (1600 - 300)));
-}
 
-.eu{
-  /* corte da foto: 3x4 */
-  width: calc(150px + (320 - 150) * ((100vw - 300px) / (1600 - 300)));
-  height: calc(200px + (400 - 200) * ((100vw - 300px) / (1600 - 300)));
+.cartao{
+  background-color: var(--fundo) !important;
 }
 
 @media (max-width: 992px) {
