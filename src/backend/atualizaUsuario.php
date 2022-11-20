@@ -18,7 +18,7 @@
     $novoNasci = "11/11/2011";
     $op = 3;
 
-    $usuario = new Usuario($usuarioDb[0], $usuarioDb[1], $usuarioDb[2], $usuarioDb[3]);
+    $usuario = new Usuario($usuarioDb["nome"], $usuarioDb["email"], $usuarioDb["senha"], $usuarioDb["nascimento"]);
     
     switch ($op) {
         case 0:
