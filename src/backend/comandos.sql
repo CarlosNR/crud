@@ -13,3 +13,5 @@ CREATE TABLE usuarios(
     nascimento DATE NOT NULL
 
 );
+
+ALTER TABLE usuarios ADD UNIQUE (email);
