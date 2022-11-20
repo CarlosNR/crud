@@ -1,0 +1,44 @@
+/* button */
+.navButton{
+    margin: 0 5px;
+    color: var(--links);
+    text-decoration: none;
+    position: relative;
+}
+
+.navButton:hover{
+    background-color: var(--navbar) !important;
+}
+
+/*  */
+
+/* navbar */
+.navBarDesk{
+    background-color: var(--texto);
+    color: var(--links);
+}
+
+.navBarMob{
+    background-color: var(--texto);
+    color: var(--links);
+}
+/*  */
+
+.icone{
+    height: 50px !important;
+    width: 50px !important;
+}
+
+/* desktop */
+/* 992 -> lg do bootstrap */
+@media (min-width: 992px) {
+    
+    .navBarDesk{
+        display: flex;    
+    }
+
+}
+
+
+
+

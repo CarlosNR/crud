@@ -1,5 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+:root{
+  --fundo:rgb(96,108,56);
+  --texto:rgb(222, 154, 106);
+  --links:rgb(254, 250, 224);
+  --navbar:rgb(40,54,24);
+  --laranjaEscuro:rgb(215, 122, 41);
+}
+
 .App {
   text-align: center;
+  background-color: var(--fundo);
+}
+
+body{
+  background-color: var(--fundo) !important;
+  color: none;
+}
+
+@media (min-width: 992px) {
+    
+  body{
+    overflow-y: hidden !important;
+  }
+
 }
 
 .App-logo {
@@ -28,7 +52,68 @@
   color: #61dafb;
 }
 
+/* geral */
+.spanTexto{
+  display: block;
+  text-align: justify;
+  color: var(--texto);
+  border-radius: 1%;
+  margin: 10px 30px;
+  padding: 1px;
+  font-size: calc(22px + (26 - 22) * ((100vw - 300px) / (1600 - 300)));
+}
+
+h1{
+  margin: 30px 15px 20px 15px !important;
+  color:  var(--links);
+  font-family: 'Abril Fatface', cursive;
+}
+
+.containerConteudo{
+  width: 100%;
+  min-height: 80vh !important;
+}
+/*  */
+
+/* Home */
+.spanTextoHome{
+  display: block;
+  text-align: justify;
+  color: var(--texto);
+  border-radius: 1%;
+  margin: 10px 30px;
+  padding: 1px;
+  font-size: calc(22px + (26 - 22) * ((100vw - 300px) / (1600 - 300)));
+}
+
+.spanProfissao{
+  text-decoration: underline;
+  text-decoration-color: var(--navbar);
+  font-size: calc(20px + (26 - 20) * ((100vw - 300px) / (1600 - 300)));
+}
+
+.eu{
+  /* corte da foto: 3x4 */
+  width: calc(150px + (320 - 150) * ((100vw - 300px) / (1600 - 300)));
+  height: calc(200px + (400 - 200) * ((100vw - 300px) / (1600 - 300)));
+}
+
+@media (max-width: 992px) {
+    
+  .spanTextoHome, .spanProfissao{
+    text-align: center !important;
+  }
+
+}
+
+.logo{
+  width: calc(150px + (350 - 150) * ((100vw - 300px) / (1600 - 300)));
+  height: calc(150px + (350 - 150) * ((100vw - 300px) / (1600 - 300)));
+}
+/*  */
+
 @keyframes App-logo-spin {
+  /* sentido da rotação: horario */
   from {
     transform: rotate(0deg);
   }
@@ -36,3 +121,5 @@
     transform: rotate(360deg);
   }
 }
+
+

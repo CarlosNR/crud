@@ -15,3 +15,6 @@ CREATE TABLE usuarios(
 );
 
 ALTER TABLE usuarios ADD UNIQUE (email);
+
+select * from usuarios;
+
