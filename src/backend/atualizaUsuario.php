@@ -4,15 +4,21 @@
     include_once "Usuario.php";
     include_once "consultaUsuario.php";
 
-    $usuarioDb = consulta($pdo);
-    print_r($usuarioDb);
-    $novoN = 'exemplo 3';
-    $novoE = 'ex3@gmail.com';
-    $novoS = '003';
-    $novoNasci = '11/11/1999';
+    $emailConsulta = "ex2@gmail.com";
+
+    $usuarioDb = consulta($pdo, $emailConsulta);
+
+    // echo "<pre>";
+    // print_r($usuarioDb);
+    // echo "</pre>";
+
+    $novoN = "exemplo 3";
+    $novoE = "ex3@gmail.com";
+    $novoS = "003";
+    $novoNasci = "11/11/2011";
     $op = 3;
 
-    $usuario = new Usuario("Exemplo", "ex2@gmail.com", "001", "10/10/1990");
+    $usuario = new Usuario($usuarioDb[0], $usuarioDb[1], $usuarioDb[2], $usuarioDb[3]);
     
     switch ($op) {
         case 0:
