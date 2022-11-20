@@ -2,7 +2,10 @@
 
     include_once "conexao.php";
     include_once "Usuario.php";
+    include_once "consultaUsuario.php";
 
+    $usuarioDb = consulta($pdo);
+    print_r($usuarioDb);
     $novoN = 'exemplo 3';
     $novoE = 'ex3@gmail.com';
     $novoS = '003';
@@ -40,7 +43,6 @@
             echo "Dado indisponivel para atualização <br/>";
         
     }
-
 
     $res->execute();
     
