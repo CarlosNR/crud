@@ -12,6 +12,16 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 
 export default function App() {
+  const user = {
+    nome: "",
+    email: "",
+    senha: "",
+    nascimento: ""
+  }
+  
+  const handleSave = (values) => {
+    console.log({values})
+  }
   return (
     <div className="App">
     
@@ -20,7 +30,7 @@ export default function App() {
         <Routes>
     
           <Route path="/" element={           
-            <Form/>
+            <Form onSave={handleSave} {...{user}}/>
           }/>
                     
         </Routes>
