@@ -76,16 +76,16 @@ h1{
 /*  */
 
 /* Home */
-.spanTextoHome{
-  display: block;
+.spanForm{
   text-align: justify;
   color: var(--texto);
-  border-radius: 1%;
-  margin: 10px 30px;
-  padding: 1px;
-  font-size: calc(22px + (26 - 22) * ((100vw - 300px) / (1600 - 300)));
+  margin-right: 1%;
 }
 
+.spanFormAviso{
+  color: var(--texto);
+  margin-left: 1%;
+}
 
 .cartao{
   background-color: var(--fundo) !important;

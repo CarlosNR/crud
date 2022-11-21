@@ -1,9 +1,17 @@
 import {Container, Row, Col, Card, Button} from 'react-bootstrap'
 import { useForm } from "react-hook-form";
-import validator from 'validator'
+// import validator from 'validator'
 
-export default function Form({onSave, user = {}}){
-    const {register, handleSubmit} = useForm()
+export default function Form(){
+    const {
+        register, 
+        handleSubmit, 
+        formState: {errors}
+    } = useForm()
+
+    if(errors.length > 0){
+        console.log(errors)
+    }
     return(
         
         <Container className="containerConteudo">
@@ -18,37 +26,47 @@ export default function Form({onSave, user = {}}){
                     console.log(data)
                 })}>
 
-                    <Row className="align-items-center justify-content-center">
+                    <Row className="align-items-center justify-content-center mt-2">
                         <Col lg={6}>
-                            <span>Nome</span>
-                            <input placeholder="Teu nome" {...register("nome", { required: true })} />
+                            <span className='spanForm'>*Nome</span>
+                            <input placeholder="Teu nome" {...register("nome", { required: "Nome nescessário." })} />
+                            <span className='spanFormAviso'>{errors.nome?.message}</span>
                         </Col>
                     </Row>
 
-                    <Row className="align-items-center justify-content-center">
+                    <Row className="align-items-center justify-content-center mt-2">
                         <Col lg={6}>
-                            <span>Email</span>
-                            <input placeholder="Teu email" {...register("email", { required: true })} />
+                            <span className='spanForm'>*Email</span>
+                            <input placeholder="Teu email" {...register("email", { required: "Email nescessário." })} />
+                            <span className='spanFormAviso'>{errors.email?.message}</span>
+
                         </Col>
                     </Row>
 
-                    <Row className="align-items-center justify-content-center">
+                    <Row className="align-items-center justify-content-center mt-2">
                         <Col lg={6}>
-                            <span>Senha</span>
-                            <input type="password" placeholder="Tua senha" {...register("senha", { required: true })} />
+                            <span className='spanForm'>*Senha</span>
+                            <input type="password" placeholder="Tua senha" {...register("senha", { required: "Senha nescessária.", minLength: {
+                                value: 6,
+                                message: 'Tamanho mínimo da senha são 6 caracteres.'
+                            }
+                            })} />
+                            <span className='spanFormAviso'>{errors.senha?.message}</span>
+
                         </Col>
                     </Row>
 
-                    <Row className="align-items-center justify-content-center">
+                    <Row className="align-items-center justify-content-center mt-2">
                         <Col lg={6}>
-                            <span>Data de Nascimento</span>
-                            <input type="date" {...register("idade", { required: true })} />
+                            <span className='spanForm'>*Data de nascimento</span>
+                            <input type="date" placeholder="Data de nascimento" {...register("nascimento", { required: "Data de nascimento nescessária." })} />
+                            <span className='spanFormAviso'>{errors.nascimento?.message}</span>
                         </Col>
                     </Row>
                     
-                    <Row className="align-items-center justify-content-center">
-                        <Col lg={6}>
-                            <input type="submit"/>
+                    <Row className="align-items-center justify-content-center mt-2">
+                        <Col lg={8}>
+                            <Button type="input" variant="success">Cadastrar</Button>{' '}
                         </Col>
                     </Row>
 
