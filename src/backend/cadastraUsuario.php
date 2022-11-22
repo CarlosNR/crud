@@ -3,7 +3,17 @@
     include_once "conexao.php";
     include_once "Usuario.php";
 
-    $usuario = new Usuario("Exemplo", "exemplo@gmail.com", "001", "10/10/1990");
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Headers: *");
+
+    $dados = file_get_contents('php://input');
+    $dados = json_decode($dados,true);
+
+    echo ("<pre>");
+    var_dump($dados);
+    echo ("</pre>");
+
+    $usuario = new Usuario($dados["nome"], $dados["email"], $dados["senha"], $dados["nascimento"]);
     
     if($usuario->getNome() && $usuario->getEmail() && $usuario->getSenha() && $usuario->getNascimento()){
 

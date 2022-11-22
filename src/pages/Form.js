@@ -1,6 +1,6 @@
 import {Container, Row, Col, Card, Button} from 'react-bootstrap'
-import { useForm } from "react-hook-form";
-// import validator from 'validator'
+import { useForm } from "react-hook-form"
+import axios from "axios"
 
 export default function Form(){
     const {
@@ -23,6 +23,7 @@ export default function Form(){
             </Row>
 
                 <form onSubmit={handleSubmit((data) => {
+                    axios.post('http://localhost:80/crud/src/backend/cadastraUsuario.php', data)
                     console.log(data)
                 })}>
 
@@ -66,7 +67,7 @@ export default function Form(){
                     
                     <Row className="align-items-center justify-content-center mt-2">
                         <Col lg={8}>
-                            <Button type="input" variant="success">Cadastrar</Button>{' '}
+                            <Button type="submit" variant="success">Cadastrar</Button>{' '}
                         </Col>
                     </Row>
 
