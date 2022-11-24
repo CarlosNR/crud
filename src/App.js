@@ -7,7 +7,8 @@ import {
   Route
 } from 'react-router-dom'
 
-import Form from './pages/Form'
+import Formulario from './pages/Formulario'
+import FormularioB from './pages/FormularioB'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 
@@ -20,9 +21,11 @@ export default function App() {
         <Routes>
     
           <Route path="/" element={           
-            <Form/>
+            <Formulario/>
           }/>
-                    
+          <Route path="/b" element={           
+            <FormularioB/>
+          }/>   
         </Routes>
         <Footer/>
       </Router>

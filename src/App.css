@@ -9,7 +9,6 @@
 }
 
 .App {
-  text-align: center;
   background-color: var(--fundo);
 }
 
@@ -67,6 +66,7 @@ h1{
   margin: 30px 15px 20px 15px !important;
   color:  var(--links);
   font-family: 'Abril Fatface', cursive;
+  text-align: center;
 }
 
 .containerConteudo{
@@ -76,14 +76,8 @@ h1{
 /*  */
 
 /* Home */
-.spanForm{
-  text-align: justify;
-  color: var(--texto);
-  margin-right: 1%;
-}
-
 .spanFormAviso{
-  color: var(--texto);
+  color: var(--navbar) !important;
   margin-left: 1%;
 }
 

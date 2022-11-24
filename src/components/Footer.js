@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 export default function Footer(){
     return(
 
-        <Container className='border-top'>
+        <Container className='border-top' style={{textAlign: "center"}}>
             <Row className='my-3 align-items-center justify-content-center'>
                 
                 <Col className='col-6 align-items-center'>

@@ -2,7 +2,7 @@ import {Container, Row, Col, Card, Button} from 'react-bootstrap'
 import { useForm } from "react-hook-form"
 import axios from "axios"
 
-export default function Form(){
+export default function Formulario(){
     const {
         register, 
         handleSubmit, 
