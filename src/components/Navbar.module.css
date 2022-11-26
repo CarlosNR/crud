@@ -12,33 +12,44 @@
 
 /*  */
 
-/* navbar */
-.navBarDesk{
+.navBar{
     background-color: var(--texto);
     color: var(--links);
 }
-
-.navBarMob{
-    background-color: var(--texto);
-    color: var(--links);
-}
-/*  */
 
 .icone{
     height: 50px !important;
     width: 50px !important;
 }
 
-/* desktop */
-/* 992 -> lg do bootstrap */
-@media (min-width: 992px) {
+.offCanvasHead{
+    background-color: var(--laranjaEscuro) !important;
+    height: 10vh !important;
+}
+
+.offCanvasBody{
+    background-color: var(--fundo) !important;
+}
+
+.offCanvasButton{
+    padding: 0;
+    margin: 5px 0;
+    width: 100%;
+    height: 8%;
+    color: var(--laranjaEscuro) !important;
+}
+
+.offCanvasButton:hover{
+    background-color: var(--navbar) !important;
+}
+
+/* mobile */
+@media (max-width: 991px) {
     
-    .navBarDesk{
-        display: flex;    
+    .navButtonUm{
+        margin: 15px 5px 5px 5px;
     }
 
 }
-
-
 
 

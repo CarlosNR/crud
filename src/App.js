@@ -18,15 +18,15 @@ export default function App() {
     
       <Router>     
         <Navbar/>
+
         <Routes>
     
           <Route path="/" element={           
             <Formulario/>
           }/>
-          <Route path="/listar" element={           
+          <Route path="/mostrar" element={           
             <Listar/>
           }/>
-
 
         </Routes>
         <Footer/>
