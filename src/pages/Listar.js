@@ -23,6 +23,7 @@ export default function Formulario(){
     })
   
     const [consulta, setConsulta] = useState({})
+    const [tabela, setTabela] = useState(false)
 
     return(
         
@@ -69,12 +70,12 @@ export default function Formulario(){
 
                 <Row className="mt-2">
                     <Col xs={12} className="d-flex align-items-center justify-content-center">
-                        <Button type="submit" variant="success">Consultar meus dados</Button>{' '}
+                        <Button type="submit" variant="success" onClick={() => setTabela(true)}>Consultar meus dados</Button>{' '}
                     </Col>
                 </Row>
             </Form>
-
-            <Row className="mt-2">
+            {tabela &&
+            <Row className="mt-5">
                 <Col xs={12}><Table singleLine>
                     <Table.Header>
                         <Table.Row>
@@ -94,6 +95,8 @@ export default function Formulario(){
                     </Table.Body>
                 </Table></Col>
             </Row>
+            }
+            
             
        </Container>
 
