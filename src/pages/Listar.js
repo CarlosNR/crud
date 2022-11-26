@@ -34,7 +34,7 @@ export default function Formulario(){
                 </Col>
             </Row>
 
-            <form onSubmit={handleSubmit((data) => {
+            <Form onSubmit={handleSubmit((data) => {
                 axios.post('http://localhost:80/crud/src/backend/consultaUsuario.php', data)
                 .then((response) => {
                     setConsulta(response.data)
@@ -72,28 +72,27 @@ export default function Formulario(){
                         <Button type="submit" variant="success">Consultar meus dados</Button>{' '}
                     </Col>
                 </Row>
-            </form>
+            </Form>
 
             <Row className="mt-2">
-                <Col>
-                <Table singleLine>
-                <Table.Header>
-                    <Table.Row>
-                        <Table.HeaderCell>Nome</Table.HeaderCell>
-                        <Table.HeaderCell>Email</Table.HeaderCell>
-                        <Table.HeaderCell>Data de nascimento</Table.HeaderCell>
-                    </Table.Row>
-                </Table.Header>
-                <Table.Body>
-                    <Table.Row>
-                        <Table.Cell>{consulta.["id"]}</Table.Cell>
-                        <Table.Cell>{consulta.["nome"]}</Table.Cell>
-                        <Table.Cell>{consulta.["email"]}</Table.Cell>
-                        <Table.Cell>{consulta.["nascimento"]}</Table.Cell>
-                    </Table.Row>
-                </Table.Body>
-                </Table>
-                </Col>
+                <Col xs={12}><Table singleLine>
+                    <Table.Header>
+                        <Table.Row>
+                            <Table.HeaderCell>Id</Table.HeaderCell>
+                            <Table.HeaderCell>Nome</Table.HeaderCell>
+                            <Table.HeaderCell>Email</Table.HeaderCell>
+                            <Table.HeaderCell>Data de nascimento</Table.HeaderCell>
+                        </Table.Row>
+                    </Table.Header>
+                    <Table.Body>
+                        <Table.Row>
+                            <Table.Cell>{consulta.id}</Table.Cell>
+                            <Table.Cell>{consulta.nome}</Table.Cell>
+                            <Table.Cell>{consulta.email}</Table.Cell>
+                            <Table.Cell>{consulta.nascimento}</Table.Cell>
+                        </Table.Row>
+                    </Table.Body>
+                </Table></Col>
             </Row>
             
        </Container>
