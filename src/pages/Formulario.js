@@ -13,7 +13,7 @@ export default function Formulario(){
         senha: yup.string().required("Senha nescessária").min(6),
 
         nascimento: yup.string().matches(
-            // expressão regular para checar data, evita que o react leia 10101999 como 7 de outubro de 1999, forçando o uso de dd/mm/aaaa na entrada, mas com saida padrao pronta para o postgres
+            // expressão regular para checar data, evita que o react leia 10101999 como 7 de outubro de 1999, forçando o uso de dd/mm/aaaa na entrada
             /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/,
             "Formato de data inválida"
         )

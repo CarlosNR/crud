@@ -75,7 +75,7 @@ h1{
 }
 /*  */
 
-/* Home */
+/* Formulario */
 .spanFormAviso{
   color: var(--navbar) !important;
   margin-left: 1%;
@@ -91,6 +91,12 @@ h1{
     text-align: center !important;
   }
 
+}
+
+.listar{
+  color: var(--links);
+  background-color: var(--navbar) !important;
+  text-decoration: none;
 }
 
 .logo{
