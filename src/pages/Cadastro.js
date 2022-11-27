@@ -10,7 +10,7 @@ export default function Formulario(){
 
         email: yup.string().required("Email nescessário").email("Email inválido"),
 
-        senha: yup.string().required("Senha nescessária").min(6),
+        senha: yup.string().required("Senha nescessária").min(6, "Digite pelo menos 6 caracteres"),
 
         nascimento: yup.string().matches(
             // expressão regular para checar data, evita que o react leia 10101999 como 7 de outubro de 1999, forçando o uso de dd/mm/aaaa na entrada

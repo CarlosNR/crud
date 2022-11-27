@@ -13,6 +13,7 @@ export default function NavBar() {
   const showSidebar = () => setShow(true)
 
   const updateMedia = () => {
+    //trabalha em pixel por padrão
     SetBootLg(window.innerWidth > 991)
   }
 
@@ -49,13 +50,13 @@ export default function NavBar() {
                         </Button>
                     </Link>
 
-                    <Link to="/projetos">
+                    <Link to="/deletar">
                         <Button variant="outline-success" className={styles.navButton}>
                             Deletar conta
                         </Button>
                     </Link>
 
-                    <Link to="/contato">
+                    <Link to="/atualizar">
                         <Button variant="outline-success" className={styles.navButton}>
                             Atualizar dados
                         </Button>
@@ -101,13 +102,13 @@ export default function NavBar() {
                   </Button>
                 </Link>
 
-                <Link to="/projetos" onClick={closeSidebar}>
+                <Link to="/deletar" onClick={closeSidebar}>
                   <Button variant="outline-success" className={styles.offCanvasButton}>
                     Deletar conta
                   </Button>
                 </Link>
 
-                <Link to="/contato" onClick={closeSidebar}>
+                <Link to="/atualizar" onClick={closeSidebar}>
                   <Button variant="outline-success" className={styles.offCanvasButton}>
                     Atualizar dados
                   </Button>

@@ -11,7 +11,7 @@ export default function Formulario(){
     const schema = yup.object({
         email: yup.string().required("Email nescessário").email("Email inválido"),
 
-        senha: yup.string().required("Senha nescessária").min(6)
+        senha: yup.string().required("Senha nescessária").min(6, "Digite pelo menos 6 caracteres")
     })
 
     const {
