@@ -7,8 +7,8 @@ import {
   Route
 } from 'react-router-dom'
 
-import Cadastro from './pages/Cadastro'
-import Listar from './pages/Listar'
+import Cadastrar from './pages/Cadastrar'
+import Consultar from './pages/Consultar'
 import Deletar from './pages/Deletar'
 import Atualizar from './pages/Atualizar'
 
@@ -25,10 +25,10 @@ export default function App() {
         <Routes>
     
           <Route path="/" element={           
-            <Cadastro/>
+            <Cadastrar/>
           }/>
           <Route path="/mostrar" element={           
-            <Listar/>
+            <Consultar/>
           }/>
           <Route path="/deletar" element={     
             <Deletar/>

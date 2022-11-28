@@ -6,7 +6,8 @@ export default function Formulario({id, nome, email, nascimento}){
     return(
         
         <Row className="mt-5">
-            <Col xs={12}><Table singleLine>
+            <Col xs={2}/>
+            <Col xs={8}><Table singleLine>
                 <Table.Header>
                     <Table.Row>
                         <Table.HeaderCell>Id</Table.HeaderCell>
@@ -24,6 +25,8 @@ export default function Formulario({id, nome, email, nascimento}){
                     </Table.Row>
                 </Table.Body>
             </Table></Col>
+            <Col xs={2}/>
+
         </Row>
             
             

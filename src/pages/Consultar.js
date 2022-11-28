@@ -35,7 +35,7 @@ export default function Formulario(){
             return(
                 <Row className="mt-5">
                     <Col xs={12} className="d-flex align-items-center justify-content-center">
-                        Registro não cadastrado.
+                        <span>Registro não cadastrado.</span>
                     </Col>
                 </Row>
             )
