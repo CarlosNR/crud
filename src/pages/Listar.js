@@ -4,7 +4,7 @@ import axios from "axios"
 import {yupResolver} from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import React, { useState } from 'react'
-import { Table } from 'semantic-ui-react'
+import Tabela from '../components/Tabela'
 
 export default function Formulario(){
 
@@ -40,6 +40,7 @@ export default function Formulario(){
                 .then((response) => {
                     setConsulta(response.data)
                     console.log(consulta)
+                    setTabela(true)
                 })
                 
             })}>
@@ -70,33 +71,13 @@ export default function Formulario(){
 
                 <Row className="mt-2">
                     <Col xs={12} className="d-flex align-items-center justify-content-center">
-                        <Button type="submit" variant="success" onClick={() => setTabela(true)}>Consultar meus dados</Button>{' '}
+                        <Button type="submit" variant="success">Consultar meus dados</Button>{' '}
                     </Col>
                 </Row>
-            </Form>
-            {tabela &&
-            <Row className="mt-5">
-                <Col xs={12}><Table singleLine>
-                    <Table.Header>
-                        <Table.Row>
-                            <Table.HeaderCell>Id</Table.HeaderCell>
-                            <Table.HeaderCell>Nome</Table.HeaderCell>
-                            <Table.HeaderCell>Email</Table.HeaderCell>
-                            <Table.HeaderCell>Data de nascimento</Table.HeaderCell>
-                        </Table.Row>
-                    </Table.Header>
-                    <Table.Body>
-                        <Table.Row>
-                            <Table.Cell>{consulta.id}</Table.Cell>
-                            <Table.Cell>{consulta.nome}</Table.Cell>
-                            <Table.Cell>{consulta.email}</Table.Cell>
-                            <Table.Cell>{consulta.nascimento}</Table.Cell>
-                        </Table.Row>
-                    </Table.Body>
-                </Table></Col>
-            </Row>
-            }
-            
+            </Form>   
+            {tabela && 
+                <Tabela id={consulta.id} nome={consulta.nome} email={consulta.email} nascimento={consulta.nascimento}/>
+            }         
             
        </Container>
 
