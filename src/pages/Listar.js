@@ -25,6 +25,25 @@ export default function Formulario(){
     const [consulta, setConsulta] = useState({})
     const [tabela, setTabela] = useState(false)
 
+    function Condicional() {
+        if(tabela && consulta){
+            return(
+                <Tabela id={consulta.id} nome={consulta.nome} email={consulta.email} nascimento={consulta.nascimento}/>
+            )
+        }
+        if(tabela && !consulta){
+            return(
+                <Row className="mt-5">
+                    <Col xs={12} className="d-flex align-items-center justify-content-center">
+                        Registro não cadastrado.
+                    </Col>
+                </Row>
+            )
+        }
+    }
+
+
+
     return(
         
         <Container className="containerConteudo">
@@ -39,8 +58,8 @@ export default function Formulario(){
                 axios.post('http://localhost:80/crud/src/backend/consultaUsuario.php', data)
                 .then((response) => {
                     setConsulta(response.data)
-                    console.log(consulta)
                     setTabela(true)
+                    console.log(consulta)
                 })
                 
             })}>
@@ -75,10 +94,9 @@ export default function Formulario(){
                     </Col>
                 </Row>
             </Form>   
-            {tabela && 
-                <Tabela id={consulta.id} nome={consulta.nome} email={consulta.email} nascimento={consulta.nascimento}/>
-            }         
             
+            {Condicional()}       
+  
        </Container>
 
         
