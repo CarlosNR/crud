@@ -103,16 +103,6 @@ h1{
 
 }
 
-.listar{
-  color: var(--links);
-  background-color: var(--navbar) !important;
-  text-decoration: none;
-}
-
-.logo{
-  width: calc(150px + (350 - 150) * ((100vw - 300px) / (1600 - 300)));
-  height: calc(150px + (350 - 150) * ((100vw - 300px) / (1600 - 300)));
-}
 /*  */
 
 @keyframes App-logo-spin {

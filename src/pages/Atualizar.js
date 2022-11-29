@@ -1,33 +1,13 @@
-import {Container, Row, Col, Card, Button, Form} from 'react-bootstrap'
-import { useForm } from "react-hook-form"
-import axios from "axios"
-import {yupResolver} from '@hookform/resolvers/yup'
-import * as yup from 'yup'
+import {Container, Row, Col} from 'react-bootstrap'
+import AtNome from '../components/AtualizarNome'
+import AtEmail from '../components/AtualizarEmail'
+import AtSenha from '../components/AtualizarSenha'
+import AtNascimento from '../components/AtualizarNascimento'
+
 
 export default function Atualizar(){
-    const schema = yup.object({
-        nome: yup.string().required("Nome nescessário"),
-
-        email: yup.string().required("Email nescessário").email("Email inválido"),
-
-        senha: yup.string().required("Senha nescessária").min(6),
-
-        nascimento: yup.string().matches(
-            // expressão regular para checar data, evita que o react leia 10101999 como 7 de outubro de 1999, forçando o uso de dd/mm/aaaa na entrada
-            /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/,
-            "Formato de data inválida"
-        )
-    })
-    const {
-        register, 
-        handleSubmit, 
-        formState: {errors}
-    } = useForm({
-        resolver: yupResolver(schema)
-    })
 
     return(
-        
         <Container className="containerConteudo">
             
           <Row className="align-items-center justify-content-center">
@@ -36,65 +16,12 @@ export default function Atualizar(){
               </Col>
           </Row>
 
-          <Form onSubmit={handleSubmit((data) => {
-              axios.post('http://localhost:80/crud/src/backend/cadastraUsuario.php', data)
-              console.log(data)
-          })}>
+          <AtNome/>
+          <AtEmail/>
+          <AtSenha/>
+          <AtNascimento/>
 
-            <Row className="align-items-center justify-content-center mt-2">
-                <Col xs={4}>
-                  <Form.Group className="mb-3">
-                  <Form.Label style={{color: "var(--texto)"}}>Nome*</Form.Label>
-                    <Form.Control type="text" placeholder="João da Silva" {...register("nome")} />
-                    <Form.Text className="spanFormAviso">
-                      {errors.nome?.message}
-                    </Form.Text>
-                  </Form.Group>
-                </Col>
-
-                <Col xs={4}>
-                  <Form.Group className="mb-3">
-                    <Form.Label style={{color: "var(--texto)"}}>Email*</Form.Label>
-                    <Form.Control type="email" placeholder="ex@exemplo.com" {...register("email")} />
-                    <Form.Text className="spanFormAviso">
-                      {errors.email?.message}
-                    </Form.Text>
-                  </Form.Group>
-                </Col>
-            </Row>
-            <Row className="align-items-center justify-content-center mt-2">
-
-                <Col xs={4}>
-                  <Form.Group className="mb-3">
-                    <Form.Label style={{color: "var(--texto)"}}>Senha*</Form.Label>
-                    <Form.Control type="password" placeholder="******" {...register("senha")} />
-                    <Form.Text className="spanFormAviso">
-                      {errors.senha?.message}
-                    </Form.Text>
-                  </Form.Group>
-                </Col>
-
-                <Col xs={4}>
-                  <Form.Group className="mb-3">
-                    <Form.Label style={{color: "var(--texto)"}}>Data de nascimento*</Form.Label>
-                    <Form.Control type="text" placeholder="dd/mm/aaaa" {...register("nascimento")} />
-                    <Form.Text className="spanFormAviso">
-                      {errors.nascimento?.message}
-                    </Form.Text>
-                  </Form.Group>
-                </Col>
-            </Row>
-
-            <Row className="mt-2">
-                <Col xs={12} className="d-flex align-items-center justify-content-center">
-                    <Button type="submit" variant="success">Cadastrar</Button>{' '}
-                </Col>
-            </Row>
-
-          </Form>
-        </Container>
-
-        
+        </Container>  
     )
 }
 
