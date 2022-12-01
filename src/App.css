@@ -15,7 +15,6 @@
 body{
   background-color: var(--fundo) !important;
   color: none;  padding-right: 0 !important;
-
 }
 
 @media (max-width: 991px) {
@@ -25,7 +24,6 @@ body{
   }
 
 }
-
 
 @media (min-width: 992px) {
     
@@ -83,16 +81,17 @@ h1{
   width: 100%;
   min-height: 80vh !important;
 }
+
+.botao{
+  background-color: var(--navbar) !important;
+  border-color: var(--navbar) !important;
+}
 /*  */
 
 /* Formulario */
 .spanFormAviso{
   color: var(--navbar) !important;
   margin-left: 1%;
-}
-
-.cartao{
-  background-color: var(--fundo) !important;
 }
 
 @media (max-width: 992px) {
@@ -104,15 +103,5 @@ h1{
 }
 
 /*  */
-
-@keyframes App-logo-spin {
-  /* sentido da rotação: horario */
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 

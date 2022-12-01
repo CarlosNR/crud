@@ -40,7 +40,7 @@ export default function AtNascimento(){
                 </Col>
 
                 <Col xs={4} className="d-flex align-items-center justify-content-center">
-                    <Button type="submit" variant="success">Atualizar</Button>{' '}
+                    <Button className="botao" type="submit" variant="success">Atualizar</Button>{' '}
                 </Col>
             </Row>
 

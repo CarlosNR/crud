@@ -90,7 +90,7 @@ export default function Formulario(){
 
                 <Row className="mt-2">
                     <Col xs={12} className="d-flex align-items-center justify-content-center">
-                        <Button type="submit" variant="success">Consultar meus dados</Button>{' '}
+                        <Button className="botao" type="submit" variant="success">Consultar meus dados</Button>{' '}
                     </Col>
                 </Row>
             </Form>   
