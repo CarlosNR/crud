@@ -9,25 +9,27 @@
     $dados = file_get_contents('php://input');
     $dados = json_decode($dados,true);
 
-    echo ("<pre>");
-    var_dump($dados);
-    echo ("</pre>");
+    // echo ("<pre>");
+    // var_dump($dados);
+    // echo ("</pre>");
 
     $usuario = new Usuario($dados["nome"], $dados["email"], $dados["senha"], $dados["nascimento"]);
     
     if($usuario->getNome() && $usuario->getEmail() && $usuario->getSenha() && $usuario->getNascimento()){
 
-        $res = $pdo->prepare("INSERT INTO usuarios(nome, email, senha, nascimento) VALUES (:n, :e, :s, :nasci)");
+        $cmd = $pdo->prepare("INSERT INTO usuarios(nome, email, senha, nascimento) VALUES (:n, :e, :s, :nasci)");
 
-        $res->bindValue(":n", $usuario->getNome());
-        $res->bindValue(":e", $usuario->getEmail());
-        $res->bindValue(":s", $usuario->getSenha());
-        $res->bindValue(":nasci", $usuario->getNascimento());
+        $cmd->bindValue(":n", $usuario->getNome());
+        $cmd->bindValue(":e", $usuario->getEmail());
+        $cmd->bindValue(":s", $usuario->getSenha());
+        $cmd->bindValue(":nasci", $usuario->getNascimento());
     
-        $res->execute();
+        $cmd->execute();
+        echo json_encode("Cadastro concluido com sucesso.");
+
     
     }else{
-        echo "cadastro possui dados faltantes.";
+        echo json_encode("Erro: Cadastro possui dados faltantes.");
     }
 
     

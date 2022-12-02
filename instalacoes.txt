@@ -6,3 +6,4 @@ npm install validator-js
 npm install axios
 npm install @hookform/resolvers yup
 npm install semantic-ui-react semantic-ui-css
+npm i date-fns@next

@@ -3,8 +3,7 @@ import { useForm } from "react-hook-form"
 import axios from "axios"
 import {yupResolver} from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import React, { useState } from 'react'
-import Tabela from '../components/Tabela'
+import React, { useState, useEffect } from 'react'
 
 export default function Formulario(){
 
@@ -22,50 +21,35 @@ export default function Formulario(){
       )
   })
 
-  const [consulta, setConsulta] = useState({})
-  const [tabela, setTabela] = useState(false)
-
   const {
-      register, 
-      handleSubmit, 
-      formState: {errors}
+    register, 
+    handleSubmit, 
+    formState: {errors}
   } = useForm({
       resolver: yupResolver(schema)
   })
 
-  function Condicional() {
-    if(tabela && consulta){
-        return(
-            <Tabela id={consulta.id} nome={consulta.nome} email={consulta.email} nascimento={consulta.nascimento}/>
-        )
-    }
-    if(tabela && !consulta){
-        return(
-            <Row className="mt-5">
-                <Col xs={12} className="d-flex align-items-center justify-content-center">
-                    Registro não cadastrado.
-                </Col>
-            </Row>
-        )
-    }
-  }
+  const [consulta, setConsulta] = useState({})
+  useEffect(() => console.log(consulta), [consulta]);
 
   return(
       
       <Container className="containerConteudo">
           
         <Row className="align-items-center justify-content-center">
-            <Col lg={6}>
-                <h1>Cadastro</h1>
-            </Col>
+          <Col lg={6}>
+              <h1>Cadastro</h1>
+          </Col>
         </Row>
 
         <Form onSubmit={handleSubmit((data) => {
           axios.post('http://localhost:80/crud/src/backend/cadastraUsuario.php', data)
           .then((response) => {
-              setConsulta(response.data)
-              setTabela(true)
-              console.log(consulta)
+            setConsulta(response.data)
+            alert(response.data)
+          })
+          .catch((error) => {
+            alert("Falha ao conectar no banco de dados.")
           })  
         })}>
 
@@ -120,7 +104,6 @@ export default function Formulario(){
           </Row>
 
         </Form>
-        {Condicional()}
       </Container>   
   )
 }

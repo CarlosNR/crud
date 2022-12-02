@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form"
 import axios from "axios"
 import {yupResolver} from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Tabela from '../components/Tabela'
 
 export default function Formulario(){
@@ -24,6 +24,8 @@ export default function Formulario(){
   
     const [consulta, setConsulta] = useState({})
     const [tabela, setTabela] = useState(false)
+    
+    useEffect(() => console.log(consulta), [consulta]);
 
     function Condicional() {
         if(tabela && consulta){
@@ -42,8 +44,6 @@ export default function Formulario(){
         }
     }
 
-
-
     return(
         
         <Container className="containerConteudo">
@@ -59,7 +59,9 @@ export default function Formulario(){
                 .then((response) => {
                     setConsulta(response.data)
                     setTabela(true)
-                    console.log(consulta)
+                })
+                .catch((error) => {
+                    alert("Falha ao conectar no banco de dados.")
                 })
                 
             })}>

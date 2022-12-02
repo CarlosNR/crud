@@ -1,9 +1,8 @@
-import {Container, Row, Col, Card, Button, Form, Alert} from 'react-bootstrap'
+import {Container, Row, Col, Card, Button, Form} from 'react-bootstrap'
 import { useForm } from "react-hook-form"
 import axios from "axios"
 import {yupResolver} from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import React, { useState } from 'react'
 
 export default function Deletar(){
     const schema = yup.object({
@@ -28,12 +27,13 @@ export default function Deletar(){
               </Col>
           </Row>
 
-            
-
           <Form onSubmit={handleSubmit((data) => {
             axios.post('http://localhost:80/crud/src/backend/deletaUsuarioEspecifico.php', data)
             .then((response) => {
-              console.log(response.data)
+              alert("É uma pena sua despedida, esperamos encontra-lo novamente.")
+            })
+            .catch((error) => {
+              alert("Falha ao conectar no banco de dados.")
             })
           })}>    
             <Row className="align-items-center justify-content-center mt-2">

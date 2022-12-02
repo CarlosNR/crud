@@ -20,7 +20,12 @@ export default function AtEmail(){
         
         <Form onSubmit={handleSubmit((data) => {
             axios.post('http://localhost:80/crud/src/backend/cadastraUsuario.php', data)
-            console.log(data)
+            .then((response) => {
+              console.log(response.data)
+            })
+            .catch((error) => {
+              alert("Falha ao conectar no banco de dados.")
+            })
         })}>
 
             <Row className="align-items-center justify-content-center">
@@ -37,7 +42,7 @@ export default function AtEmail(){
                 </Col>
 
                 <Col xs={4} className="d-flex align-items-center justify-content-center">
-                    <Button className="botao" type="submit" variant="success">Atualizar</Button>{' '}
+                    <Button className="botao" type="submit" variant="success">Atualizar</Button>
                 </Col>
             </Row>
 

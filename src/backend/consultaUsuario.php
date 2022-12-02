@@ -4,8 +4,7 @@
 
     header("Access-Control-Allow-Origin: *");
     header("Access-Control-Allow-Headers: *");
-    header('Access-Control-Allow-Methods: GET,PUT,POST,DELETE,PATCH,OPTIONS');
-
+    header('Access-Control-Allow-Methods: GET,POST');
 
     $dados = file_get_contents('php://input');
     $dados = json_decode($dados, true);
@@ -15,19 +14,18 @@
 
     if($email && $senha){
 
-        $res = $pdo->prepare("SELECT * FROM usuarios WHERE email = :e AND senha = :s ");
+        $cmd = $pdo->prepare("SELECT * FROM usuarios WHERE email = :e AND senha = :s ");
 
-        $res->bindValue(":e", $email);   
-        $res->bindValue(":s", $senha);   
+        $cmd->bindValue(":e", $email);   
+        $cmd->bindValue(":s", $senha);   
 
-        $res->execute();
-        $consulta = $res->fetch();
+        $cmd->execute();
+        $res = $cmd->fetch(PDO::FETCH_ASSOC);
 
-        echo json_encode($consulta);
+        echo json_encode($res);
 
     }else{
-        echo json_encode("cadastro possui dados faltantes.");
-        
+        echo json_encode("Erro: Cadastro possui dados faltantes.");
     }
 
 ?>
