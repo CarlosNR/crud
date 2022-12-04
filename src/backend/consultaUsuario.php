@@ -9,14 +9,29 @@
     $dados = file_get_contents('php://input');
     $dados = json_decode($dados, true);
 
-    $email= $dados["email"];
-    $senha = $dados["senha"];
+    if(isset($dados["email"]) && $dados["senha"]){
 
-    if($email && $senha){
+        $email= $dados["email"];
+        $senha = $dados["senha"];
 
         $cmd = $pdo->prepare("SELECT * FROM usuarios WHERE email = :e AND senha = :s ");
 
         $cmd->bindValue(":e", $email);   
+        $cmd->bindValue(":s", $senha);   
+
+        $cmd->execute();
+        $res = $cmd->fetch(PDO::FETCH_ASSOC);
+
+        echo json_encode($res);
+
+    }elseif(isset($dados["id"]) && $dados["senha"]){
+
+        $id= $dados["id"];
+        $senha = $dados["senha"];
+
+        $cmd = $pdo->prepare("SELECT * FROM usuarios WHERE id = :i AND senha = :s ");
+
+        $cmd->bindValue(":i", $id);   
         $cmd->bindValue(":s", $senha);   
 
         $cmd->execute();

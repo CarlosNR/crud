@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form"
 import {yupResolver} from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { useNavigate } from 'react-router'
+import axios from "axios"
+import React, { useState, useEffect } from 'react'
 
 export default function AtualizarLogin(...props){
 
@@ -19,14 +21,29 @@ export default function AtualizarLogin(...props){
         resolver: yupResolver(schema)
     })
 
+    const [consulta, setConsulta] = useState({})
+    useEffect(() => console.log(consulta), [consulta])
     const navigate = useNavigate()
 
     const onSubmit = data => {
-        navigate('/atualizarDados',{state:
-                                    {
-                                        id:data.id,
-                                        senha:data.senha
-                                    }})
+        axios.post('http://localhost:80/crud/src/backend/consultaUsuario.php', data)
+        .then((response) => {
+          if(response.data){
+              setConsulta(response.data)
+              navigate('/atualizarDados',{state:
+                {
+                    id:data.id,
+                    senha:data.senha
+                }})
+          }else{
+            alert("Cadastro não existe ou senha está errada.")
+          }
+
+        })
+        .catch((error) => {
+          alert("Falha ao conectar no banco de dados.")
+        })  
+          
     }
 
     return(
