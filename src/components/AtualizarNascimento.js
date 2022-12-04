@@ -3,8 +3,8 @@ import { useForm } from "react-hook-form"
 import axios from "axios"
 import {yupResolver} from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import React, { useState } from 'react'
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
+import {useLocation} from 'react-router-dom'
 
 export default function AtNascimento(){
     const schema = yup.object({
@@ -22,17 +22,19 @@ export default function AtNascimento(){
         resolver: yupResolver(schema)
     })
 
-    const [consulta, setConsulta] = useState({})
-    useEffect(() => console.log(consulta), [consulta])
+    const location = useLocation()
+    const dado = location.state
+
+    useEffect(() => console.log('Nasci' + dado['id']), [dado])
 
     return(
         
         <Form onSubmit={handleSubmit((data) => {
+            data['id'] = dado['id']
             axios.post('http://localhost:80/crud/src/backend/atualiza.php', data)
             .then((response) => {
-              if(response.data){
-                setConsulta(response.data)
-                alert(consulta)
+              if(response.data.toString().includes("sucesso")){
+                alert("Data e nascimento corrigida com sucesso.")
               }else{
                 alert("Operação não concluída.")
               }

@@ -3,13 +3,15 @@ import { useForm } from "react-hook-form"
 import axios from "axios"
 import {yupResolver} from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import React, { useState } from 'react'
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
+import {useLocation} from 'react-router-dom'
 
-export default function AtEmail({id}){
+export default function AtEmail(){
+
     const schema = yup.object({
         email: yup.string().required("Email nescessário").email("Email inválido"),
     })
+    
     const {
         register, 
         handleSubmit, 
@@ -18,17 +20,18 @@ export default function AtEmail({id}){
         resolver: yupResolver(schema)
     })
 
-    const [consulta, setConsulta] = useState({})
-    useEffect(() => console.log(consulta), [consulta])
+    const location = useLocation()
+    const dado = location.state
+
+    useEffect(() => console.log('Email' + dado['id']), [dado])
 
     return(
         
         <Form onSubmit={handleSubmit((data) => {
-            data['id'] = id
+            data['id'] = dado['id']
             axios.post('http://localhost:80/crud/src/backend/atualiza.php', data)
             .then((response) => {
               if(response.data.toString().includes("sucesso")){
-                setConsulta(response.data)
                 alert("Email atualizado com sucesso.")
               }else{
                 alert("Operação não concluída.")

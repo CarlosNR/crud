@@ -7,7 +7,7 @@ import axios from "axios"
 import React, { useState } from 'react'
 // import { useEffect } from 'react'
 
-export default function AtualizarLogin(...props){
+export default function AtualizarLogin(){
 
     const schema = yup.object({
         id: yup.number("id não é um número inteiro").required("id nescessário"),

@@ -8,7 +8,7 @@
     $dados = file_get_contents('php://input');
     $dados = json_decode($dados,true);
   
-    if(isset($dados["nome"])){
+    if(isset($dados["nome"]) && isset($dados["id"])){
 
         $cmd = $pdo->prepare("UPDATE usuarios SET nome = :n WHERE id = :i");
 
@@ -18,7 +18,7 @@
         $cmd->execute();
         echo json_encode("Nome corrigido com sucesso.");
 
-    }elseif(isset($dados["email"])){
+    }elseif(isset($dados["email"]) && isset($dados["id"])){
 
         $cmd = $pdo->prepare("UPDATE usuarios SET email = :e WHERE id = :i");
 
@@ -28,7 +28,7 @@
         $cmd->execute();
         echo json_encode("Email atualizado com sucesso.");
 
-    }elseif(isset($dados["senha"])){
+    }elseif(isset($dados["senha"]) && isset($dados["id"])){
 
         $cmd = $pdo->prepare("UPDATE usuarios SET senha = :s WHERE id = :i");
 
@@ -38,7 +38,7 @@
         $cmd->execute();
         echo json_encode("Senha atualizada com sucesso.");
 
-    }elseif(isset($dados["nascimento"])){
+    }elseif(isset($dados["nascimento"]) && isset($dados["id"])){
         
         $cmd = $pdo->prepare("UPDATE usuarios SET nascimento = :nasci WHERE id = :i");
 
