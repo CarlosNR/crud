@@ -10,6 +10,7 @@
     $dados = json_decode($dados, true);
 
     if(isset($dados["email"]) && $dados["senha"]){
+        //Consultar.js
 
         $email= $dados["email"];
         $senha = $dados["senha"];
@@ -25,6 +26,7 @@
         echo json_encode($res);
 
     }elseif(isset($dados["id"]) && $dados["senha"]){
+        //AtualizarLogin.js
 
         $id= $dados["id"];
         $senha = $dados["senha"];

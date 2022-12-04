@@ -4,7 +4,8 @@ import {yupResolver} from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { useNavigate } from 'react-router'
 import axios from "axios"
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
+// import { useEffect } from 'react'
 
 export default function AtualizarLogin(...props){
 
@@ -22,7 +23,7 @@ export default function AtualizarLogin(...props){
     })
 
     const [consulta, setConsulta] = useState({})
-    useEffect(() => console.log(consulta), [consulta])
+    // useEffect(() => console.log(consulta), [consulta])
     const navigate = useNavigate()
 
     const onSubmit = data => {

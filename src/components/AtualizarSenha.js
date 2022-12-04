@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form"
 import axios from "axios"
 import {yupResolver} from '@hookform/resolvers/yup'
 import * as yup from 'yup'
+import React, { useState } from 'react'
+import { useEffect } from 'react'
 
 export default function AtSenha(){
     const schema = yup.object({
@@ -16,11 +18,24 @@ export default function AtSenha(){
         resolver: yupResolver(schema)
     })
 
+    const [consulta, setConsulta] = useState({})
+    useEffect(() => console.log(consulta), [consulta])
+
     return(
         
         <Form onSubmit={handleSubmit((data) => {
-            axios.post('http://localhost:80/crud/src/backend/cadastraUsuario.php', data)
-            console.log(data)
+            axios.post('http://localhost:80/crud/src/backend/atualiza.php', data)
+            .then((response) => {
+              if(response.data){
+                setConsulta(response.data)
+                alert(consulta)
+              }else{
+                alert("Operação não concluída.")
+              }
+            })
+            .catch((error) => {
+              alert("Falha ao conectar no banco de dados.")
+            })
         })}>
 
             <Row className="align-items-center justify-content-center">

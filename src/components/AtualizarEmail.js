@@ -3,8 +3,10 @@ import { useForm } from "react-hook-form"
 import axios from "axios"
 import {yupResolver} from '@hookform/resolvers/yup'
 import * as yup from 'yup'
+import React, { useState } from 'react'
+import { useEffect } from 'react'
 
-export default function AtEmail(){
+export default function AtEmail({id}){
     const schema = yup.object({
         email: yup.string().required("Email nescessário").email("Email inválido"),
     })
@@ -16,12 +18,21 @@ export default function AtEmail(){
         resolver: yupResolver(schema)
     })
 
+    const [consulta, setConsulta] = useState({})
+    useEffect(() => console.log(consulta), [consulta])
+
     return(
         
         <Form onSubmit={handleSubmit((data) => {
-            axios.post('http://localhost:80/crud/src/backend/cadastraUsuario.php', data)
+            data['id'] = id
+            axios.post('http://localhost:80/crud/src/backend/atualiza.php', data)
             .then((response) => {
-              console.log(response.data)
+              if(response.data.toString().includes("sucesso")){
+                setConsulta(response.data)
+                alert("Email atualizado com sucesso.")
+              }else{
+                alert("Operação não concluída.")
+              }
             })
             .catch((error) => {
               alert("Falha ao conectar no banco de dados.")

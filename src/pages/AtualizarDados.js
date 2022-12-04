@@ -23,7 +23,7 @@ export default function AtualizarDados(){
           </Row>
 
           <AtNome/>
-          <AtEmail/>
+          <AtEmail id={dado['id']}/>
           <AtSenha/>
           <AtNascimento/>
 
