@@ -56,7 +56,7 @@ export default function NavBar() {
                         </Button>
                     </Link>
 
-                    <Link to="/atualizar">
+                    <Link to="/atualizarLogin">
                         <Button variant="outline-success" className={styles.navButton}>
                             Atualizar dados
                         </Button>
@@ -108,7 +108,7 @@ export default function NavBar() {
                   </Button>
                 </Link>
 
-                <Link to="/atualizar" onClick={closeSidebar}>
+                <Link to="/atualizarLogin" onClick={closeSidebar}>
                   <Button variant="outline-success" className={styles.offCanvasButton}>
                     Atualizar dados
                   </Button>

@@ -8,17 +8,17 @@ import React, { useState, useEffect } from 'react'
 export default function Formulario(){
 
   const schema = yup.object({
-      nome: yup.string().required("Nome nescessário"),
+    nome: yup.string().required("Nome nescessário"),
 
-      email: yup.string().required("Email nescessário").email("Email inválido"),
+    email: yup.string().required("Email nescessário").email("Email inválido"),
 
-      senha: yup.string().required("Senha nescessária").min(6, "Digite pelo menos 6 caracteres"),
+    senha: yup.string().required("Senha nescessária").min(6, "Digite pelo menos 6 caracteres"),
 
-      nascimento: yup.string().matches(
-          // expressão regular para checar data, evita que o react leia 10101999 como 7 de outubro de 1999, forçando o uso de dd/mm/aaaa na entrada
-          /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/,
-          "Formato de data inválida"
-      )
+    nascimento: yup.string().matches(
+        // expressão regular para checar data, evita que o react leia 10101999 como 7 de outubro de 1999, forçando o uso de dd/mm/aaaa na entrada
+        /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/,
+        "Formato de data inválida"
+    )
   })
 
   const {
@@ -30,7 +30,7 @@ export default function Formulario(){
   })
 
   const [consulta, setConsulta] = useState({})
-  useEffect(() => console.log(consulta), [consulta]);
+  useEffect(() => console.log(consulta), [consulta])
 
   return(
       
@@ -99,7 +99,7 @@ export default function Formulario(){
 
           <Row className="mt-2">
               <Col xs={12} className="d-flex align-items-center justify-content-center">
-                  <Button className="botao" type="submit" variant="success">Cadastrar</Button>{' '}
+                  <Button className="botao" type="submit" variant="success">Cadastrar</Button>
               </Col>
           </Row>
 

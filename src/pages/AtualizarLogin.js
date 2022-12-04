@@ -1,14 +1,16 @@
 import {Container, Row, Col, Card, Button, Form} from 'react-bootstrap'
 import { useForm } from "react-hook-form"
-import axios from "axios"
 import {yupResolver} from '@hookform/resolvers/yup'
 import * as yup from 'yup'
+import { useNavigate } from 'react-router'
 
-export default function Deletar(){
+export default function AtualizarLogin(...props){
+
     const schema = yup.object({
         id: yup.number("id não é um número inteiro").required("id nescessário"),
         senha: yup.string().required("Senha nescessária").min(6, "Digite pelo menos 6 caracteres"),
     })
+
     const {
         register, 
         handleSubmit, 
@@ -17,25 +19,28 @@ export default function Deletar(){
         resolver: yupResolver(schema)
     })
 
+    const navigate = useNavigate()
+
+    const onSubmit = data => {
+        navigate('/atualizarDados',{state:
+                                    {
+                                        id:data.id,
+                                        senha:data.senha
+                                    }})
+    }
+
     return(
         
         <Container className="containerConteudo">
             
           <Row className="align-items-center justify-content-center">
               <Col lg={6}>
-                  <h1>Deletar registro</h1>
+                  <h1>Confirme sua conta para atualização</h1>
               </Col>
           </Row>
 
-          <Form onSubmit={handleSubmit((data) => {
-            axios.post('http://localhost:80/crud/src/backend/deletaUsuarioEspecifico.php', data)
-            .then((response) => {
-              alert("É uma pena sua despedida, esperamos encontra-lo novamente.")
-            })
-            .catch((error) => {
-              alert("Falha ao conectar no banco de dados.")
-            })
-          })}>    
+          <Form onSubmit={handleSubmit(onSubmit)}>
+            
             <Row className="align-items-center justify-content-center mt-2">
                 <Col xs={4}>
                   <Form.Group className="mb-3">
@@ -60,7 +65,7 @@ export default function Deletar(){
            
             <Row className="mt-2">
                 <Col xs={12} className="d-flex align-items-center justify-content-center">
-                    <Button className="botao" type="submit" variant="success">Deletar meu cadastro</Button>
+                <Button className="botao" type="submit" variant="success">Confirmar</Button>
                 </Col>
             </Row>
 
