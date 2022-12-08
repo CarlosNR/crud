@@ -85,7 +85,7 @@ h1{
 @media (min-width: 768px) {
     
   .containerConteudo{
-    min-height: 78vh !important;
+    height: 78vh !important;
   }
 
 }
