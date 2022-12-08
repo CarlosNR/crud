@@ -4,6 +4,7 @@ import axios from "axios"
 import {yupResolver} from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import React, { useState, useEffect } from 'react'
+// import { useEffect } from 'react'
 import Tabela from '../components/Tabela'
 
 export default function Formulario(){
@@ -25,7 +26,7 @@ export default function Formulario(){
     const [consulta, setConsulta] = useState({})
     const [tabela, setTabela] = useState(false)
     
-    useEffect(() => console.log(consulta), [consulta]);
+    // useEffect(() => console.log(consulta), [consulta]);
 
     function Condicional() {
         if(tabela && consulta){
@@ -68,7 +69,7 @@ export default function Formulario(){
 
                 <Row className="align-items-center justify-content-center mt-2">
 
-                    <Col xs={4}>
+                    <Col md={4} xs={10}>
                     <Form.Group className="mb-3">
                         <Form.Label style={{color: "var(--texto)"}}>Email*</Form.Label>
                         <Form.Control type="email" placeholder="ex@exemplo.com" {...register("email")} />
@@ -78,7 +79,7 @@ export default function Formulario(){
                     </Form.Group>
                     </Col>
 
-                    <Col xs={4}>
+                    <Col md={4} xs={10}>
                     <Form.Group className="mb-3">
                         <Form.Label style={{color: "var(--texto)"}}>Senha*</Form.Label>
                         <Form.Control type="password" placeholder="******" {...register("senha")} />

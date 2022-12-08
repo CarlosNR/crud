@@ -3,7 +3,9 @@ import { useForm } from "react-hook-form"
 import axios from "axios"
 import {yupResolver} from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
+// import { useEffect } from 'react'
+
 
 export default function Formulario(){
 
@@ -30,7 +32,7 @@ export default function Formulario(){
   })
 
   const [consulta, setConsulta] = useState({})
-  useEffect(() => console.log(consulta), [consulta])
+  // useEffect(() => console.log(consulta), [consulta])
 
   return(
       
@@ -42,7 +44,7 @@ export default function Formulario(){
           </Col>
         </Row>
 
-        <Form onSubmit={handleSubmit((data) => {
+        <Form className="mb-3" onSubmit={handleSubmit((data) => {
           axios.post('http://localhost:80/crud/src/backend/cadastraUsuario.php', data)
           .then((response) => {
             setConsulta(response.data)
@@ -53,9 +55,9 @@ export default function Formulario(){
           })  
         })}>
 
-          <Row className="align-items-center justify-content-center mt-2">
-              <Col xs={4}>
-                <Form.Group className="mb-3">
+          <Row className="align-items-center justify-content-center my-2">
+              <Col md={4} xs={10}>
+                <Form.Group className="mb-2">
                 <Form.Label style={{color: "var(--texto)"}}>Nome*</Form.Label>
                   <Form.Control type="text" placeholder="João da Silva" {...register("nome")} />
                   <Form.Text className="spanFormAviso">
@@ -64,8 +66,8 @@ export default function Formulario(){
                 </Form.Group>
               </Col>
 
-              <Col xs={4}>
-                <Form.Group className="mb-3">
+              <Col md={4} xs={10}>
+                <Form.Group className="mb-2">
                   <Form.Label style={{color: "var(--texto)"}}>Email*</Form.Label>
                   <Form.Control type="email" placeholder="ex@exemplo.com" {...register("email")} />
                   <Form.Text className="spanFormAviso">
@@ -76,8 +78,8 @@ export default function Formulario(){
           </Row>
           <Row className="align-items-center justify-content-center mt-2">
 
-              <Col xs={4}>
-                <Form.Group className="mb-3">
+              <Col md={4} xs={10}>
+                <Form.Group className="mb-2">
                   <Form.Label style={{color: "var(--texto)"}}>Senha*</Form.Label>
                   <Form.Control type="password" placeholder="******" {...register("senha")} />
                   <Form.Text className="spanFormAviso">
@@ -86,8 +88,8 @@ export default function Formulario(){
                 </Form.Group>
               </Col>
 
-              <Col xs={4}>
-                <Form.Group className="mb-3">
+              <Col md={4} xs={10}>
+                <Form.Group className="mb-2">
                   <Form.Label style={{color: "var(--texto)"}}>Data de nascimento*</Form.Label>
                   <Form.Control type="text" placeholder="dd/mm/aaaa" {...register("nascimento")} />
                   <Form.Text className="spanFormAviso">

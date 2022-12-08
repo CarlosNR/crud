@@ -3,15 +3,8 @@ import AtNome from '../components/AtualizarNome'
 import AtEmail from '../components/AtualizarEmail'
 import AtSenha from '../components/AtualizarSenha'
 import AtNascimento from '../components/AtualizarNascimento'
-import React, { useEffect } from 'react'
-import {useLocation} from 'react-router-dom'
 
 export default function AtualizarDados(){
-
-    const location = useLocation()
-    const dado = location.state
-
-    // useEffect(() => console.log(dado), [dado])
 
     return(
         <Container className="containerConteudo">

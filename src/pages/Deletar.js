@@ -37,7 +37,7 @@ export default function Deletar(){
             })
           })}>    
             <Row className="align-items-center justify-content-center mt-2">
-                <Col xs={4}>
+                <Col md={4} xs={10}>
                   <Form.Group className="mb-3">
                   <Form.Label style={{color: "var(--texto)"}}>Id*</Form.Label>
                     <Form.Control type="text" placeholder="Identificador do mostrar meu dados" {...register("id")} />
@@ -47,7 +47,7 @@ export default function Deletar(){
                   </Form.Group>
                 </Col>
 
-                <Col xs={4}>
+                <Col md={4} xs={10}>
                   <Form.Group className="mb-3">
                     <Form.Label style={{color: "var(--texto)"}}>Senha*</Form.Label>
                     <Form.Control type="password" placeholder="******" {...register("senha")} />

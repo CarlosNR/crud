@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form"
 import axios from "axios"
 import {yupResolver} from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import React, { useEffect } from 'react'
+// import React, { useEffect } from 'react'
 import {useLocation} from 'react-router-dom'
 
 export default function AtSenha(){
@@ -23,7 +23,7 @@ export default function AtSenha(){
     const dado = location.state
 
     // useEffect(() => console.log('Senha' + dado['id'] + dado['senha']), [dado])
-    useEffect(() => console.log('Senha' + dado['id']), [dado])
+    // useEffect(() => console.log('Senha' + dado['id']), [dado])
 
     return(
         

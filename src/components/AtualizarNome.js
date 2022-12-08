@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form"
 import axios from "axios"
 import {yupResolver} from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import React, { useEffect } from 'react'
+// import React, { useEffect } from 'react'
 import {useLocation} from 'react-router-dom'
 
 export default function AtNome(){
@@ -21,7 +21,7 @@ export default function AtNome(){
     const location = useLocation()
     const dado = location.state
 
-    useEffect(() => console.log('Nome' + dado['id']), [dado])
+    // useEffect(() => console.log('Nome' + dado['id']), [dado])
 
     return(
         
