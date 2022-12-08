@@ -9,11 +9,11 @@
 }
 
 .App {
-  background-color: var(--fundo);
+  background-color: var(--navbar);
 }
 
 body{
-  background-color: var(--fundo) !important;
+  background-color: var(--navbar) !important;
   color: none;  padding-right: 0 !important;
 }
 
@@ -71,24 +71,61 @@ body{
 }
 
 h1{
-  margin: 30px 15px 20px 15px !important;
+  /* card-title tem 8px de margin-bottom */
+  margin: 20px 15px 12px 15px !important;
   color:  var(--links);
   font-family: 'Abril Fatface', cursive;
   text-align: center;
 }
 
 .containerConteudo{
-  width: 100%;
-  min-height: 80vh !important;
+  width: 100%;  
+}
+
+@media (min-width: 768px) {
+    
+  .containerConteudo{
+    min-height: 78vh !important;
+  }
+
 }
 
 .botao{
   background-color: var(--navbar) !important;
   border-color: var(--navbar) !important;
 }
+
+.card{
+  border-color: var(--navbar) !important;
+}
+
+.card > .card-header{
+  background-color: var(--laranjaEscuro) !important;
+}
+
+.card > .card-body{
+  background-color: var(--fundo) !important;
+}
+
+@media (max-width: 767px) {
+    
+  .card{
+    margin: 20px 0 !important;
+  }
+
+}
+
+@media (min-width: 768px) {
+    
+  .card{
+    margin: 20px 0 !important;
+  }
+
+}
 /*  */
 
 /* Formulario */
+
 .spanFormAviso{
   color: var(--navbar) !important;
   margin-left: 1%;
