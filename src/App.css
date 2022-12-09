@@ -80,14 +80,7 @@ h1{
 
 .containerConteudo{
   width: 100%;  
-}
-
-@media (min-width: 768px) {
-    
-  .containerConteudo{
-    height: 78vh !important;
-  }
-
+  min-height: 79vh !important;
 }
 
 .botao{
@@ -97,6 +90,7 @@ h1{
 
 .card{
   border-color: var(--navbar) !important;
+  margin: 20px 0 !important;
 }
 
 .card > .card-header{
@@ -107,24 +101,21 @@ h1{
   background-color: var(--fundo) !important;
 }
 
-@media (max-width: 767px) {
-    
-  .card{
-    margin: 20px 0 !important;
-  }
-
-}
-
 @media (min-width: 768px) {
     
   .card{
-    margin: 20px 0 !important;
+    margin: 40px 0 !important;
   }
 
 }
 /*  */
 
 /* Formulario */
+
+.infoTabela{
+  color: var(--links);
+  text-align: center;
+}
 
 .spanFormAviso{
   color: var(--navbar) !important;

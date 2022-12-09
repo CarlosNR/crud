@@ -23,7 +23,11 @@
         $cmd->execute();
         $res = $cmd->fetch(PDO::FETCH_ASSOC);
 
-        echo json_encode($res);
+        if($res){
+            echo json_encode($res);
+        }else{
+            echo json_encode(false);
+        }
 
     }elseif(isset($dados["id"]) && $dados["senha"]){
         //AtualizarLogin.js

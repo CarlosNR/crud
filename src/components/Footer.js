@@ -8,7 +8,7 @@ export default function Footer(){
     return(
 
         <Container className='border-top' style={{textAlign: "center"}}>
-            <Row className='mt-4 align-items-center justify-content-center'>
+            <Row className='mt-4 d-flex align-items-center justify-content-center'>
                 
                 <Col className='col-6 align-items-center'>
                     <span className={styles.email}>email: si.carlos@gmail.com</span>

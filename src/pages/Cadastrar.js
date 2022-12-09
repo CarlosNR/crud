@@ -36,9 +36,9 @@ export default function Formulario(){
 
   return(
       
-      <Container className="d-flex containerConteudo align-items-center">
+      <Container className="d-flex containerConteudo">
 
-        <Col md={12}>
+        <Col xs={12}>
           <Card>
             <Card.Header>
               <Card.Title>
