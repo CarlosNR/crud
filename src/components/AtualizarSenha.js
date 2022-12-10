@@ -46,7 +46,7 @@ export default function AtSenha(){
             <Row className="align-items-center justify-content-center">
                 <Col xs={2}/>
                 <Col xs={6}>
-                  <Form.Group className="mb-2">
+                  <Form.Group>
                     <Form.Label style={{color: "var(--texto)"}}>Senha*</Form.Label>
                     <Form.Control type="password" placeholder="******" {...register("senha")} />
                     <Form.Text className="spanFormAviso">

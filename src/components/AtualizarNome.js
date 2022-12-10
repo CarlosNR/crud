@@ -43,7 +43,7 @@ export default function AtNome(){
             <Row className="align-items-center justify-content-center">
                 <Col xs={2}/>
                 <Col xs={6}>
-                    <Form.Group className="mb-2">
+                    <Form.Group>
                     <Form.Label style={{color: "var(--texto)"}}>Nome*</Form.Label>
                     <Form.Control type="text" placeholder="João da Silva" {...register("nome")} />
                     <Form.Text className="spanFormAviso">

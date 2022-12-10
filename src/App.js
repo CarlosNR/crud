@@ -4,7 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import {
   BrowserRouter as Router,
   Routes,
-  Route
+  Route,
+  useLocation
 } from 'react-router-dom'
 
 import Cadastrar from './pages/Cadastrar'
@@ -44,7 +45,9 @@ export default function App() {
 
 
         </Routes>
-        <Footer/>
+        {/* Remove footer que fica horrivel na página de atualizarDados.js */}
+        {window.location.pathname !== '/atualizarDados' && <Footer /> }
+        
       </Router>
 
     </div>

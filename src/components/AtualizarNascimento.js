@@ -47,7 +47,7 @@ export default function AtNascimento(){
             <Row className="align-items-center justify-content-center">
                 <Col xs={2}/>
                 <Col xs={6}>
-                  <Form.Group className="mb-2">
+                  <Form.Group>
                     <Form.Label style={{color: "var(--texto)"}}>Data de nascimento*</Form.Label>
                     <Form.Control type="text" placeholder="dd/mm/aaaa" {...register("nascimento")} />
                     <Form.Text className="spanFormAviso">

@@ -14,7 +14,8 @@
 
 body{
   background-color: var(--navbar) !important;
-  color: none;  padding-right: 0 !important;
+  color: none;  
+  padding-right: 0 !important;
 }
 
 @media (max-width: 991px) {
@@ -25,7 +26,7 @@ body{
 
 }
 
-@media (min-width: 992px) {
+@media (min-width: 768px) {
     
   body{
     overflow-y: hidden !important;
